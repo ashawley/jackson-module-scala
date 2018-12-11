@@ -46,13 +46,13 @@ class ScalaAnnotationIntrospectorTest extends fixture.FlatSpec with Matchers {
   it should "detect a val property" in { mapper =>
     val bean = new BasicPropertyClass(1)
     val allProps = getProps(mapper, bean)
-    allProps.loneElement should have ('name ("param"))
+    allProps.loneElement should have (sym"name" ("param"))
 
     val prop = allProps.asScala.head
     prop should have (
-      'hasField (true),
-      'hasGetter (true),
-      'hasConstructorParameter (true)
+      sym"hasField" (true),
+      sym"hasGetter" (true),
+      sym"hasConstructorParameter" (true)
     )
 
     val accessor = prop.getAccessor
@@ -79,13 +79,13 @@ class ScalaAnnotationIntrospectorTest extends fixture.FlatSpec with Matchers {
   it should "detect a bean property" in { mapper =>
     val bean = new BeanPropertyClass(1)
     val allProps = getProps(mapper, bean)
-    allProps.loneElement should have ('name ("param"))
+    allProps.loneElement should have (sym"name" ("param"))
 
     val prop = allProps.asScala.head
     prop should have (
-      'hasField (true),
-      'hasGetter (true),
-      'hasConstructorParameter (true)
+      sym"hasField" (true),
+      sym"hasGetter" (true),
+      sym"hasConstructorParameter" (true)
     )
 
     val accessor = prop.getAccessor
@@ -107,13 +107,13 @@ class ScalaAnnotationIntrospectorTest extends fixture.FlatSpec with Matchers {
 
     val bean = new AnnotatedBeanPropertyClass(new Token)
     val allProps = getProps(mapper, bean)
-    allProps.loneElement should have ('name ("param"))
+    allProps.loneElement should have (sym"name" ("param"))
 
     val prop = allProps.asScala.head
     prop should have (
-      'hasField (true),
-      'hasGetter (true),
-      'hasConstructorParameter (true)
+      sym"hasField" (true),
+      sym"hasGetter" (true),
+      sym"hasConstructorParameter" (true)
     )
     val param = prop.getConstructorParameter
     param.getAnnotation(classOf[JsonScalaTestAnnotation]) shouldNot be (null)

@@ -165,7 +165,7 @@ class BeanIntrospectorTest extends BaseSpec with Inside with LoneElement with Op
 
     inside (props.loneElement) { case PropertyDescriptor(n,p,f,g,s,_,_) =>
       n shouldBe "field-name"
-      p.value should have ('index (0))
+      p.value should have (sym"index" (0))
       f.value should have (decodedName ("field-name"))
       g shouldBe empty
       s shouldBe empty
@@ -180,7 +180,7 @@ class BeanIntrospectorTest extends BaseSpec with Inside with LoneElement with Op
 
     inside (props.loneElement) { case PropertyDescriptor(n,p,f,g,s,_,_) =>
       n shouldBe "field-name"
-      p.value should have ('index (0))
+      p.value should have (sym"index" (0))
       f.value should have (decodedName ("field-name"))
       g.value should have (decodedName ("field-name"))
       s shouldBe empty
@@ -195,7 +195,7 @@ class BeanIntrospectorTest extends BaseSpec with Inside with LoneElement with Op
 
     inside (props.loneElement) { case PropertyDescriptor(n,p,f,g,s,_,_) =>
       n shouldBe "field-name"
-      p.value should have ('index (0))
+      p.value should have (sym"index" (0))
       f.value should have (decodedName ("field-name"))
       g.value should have (decodedName ("field-name"))
       s shouldBe empty
@@ -210,7 +210,7 @@ class BeanIntrospectorTest extends BaseSpec with Inside with LoneElement with Op
 
     inside (props.loneElement) { case PropertyDescriptor(n,p,f,g,s,_,_) =>
       n shouldBe "field-name"
-      p.value should have ('index (0))
+      p.value should have (sym"index" (0))
       f.value should have (decodedName ("field-name"))
       g.value should have (decodedName ("field-name"))
       s.value should have (decodedName ("field-name_="))
@@ -225,7 +225,7 @@ class BeanIntrospectorTest extends BaseSpec with Inside with LoneElement with Op
 
     inside (props.loneElement) { case PropertyDescriptor(n,p,f,g,s,_,_) =>
       n shouldBe "field-name"
-      p.value should have ('index (0))
+      p.value should have (sym"index" (0))
       f.value should have (decodedName ("field-name"))
       g.value should have (decodedName ("field-name"))
       s.value should have (decodedName ("field-name_="))
@@ -255,8 +255,8 @@ class BeanIntrospectorTest extends BaseSpec with Inside with LoneElement with Op
 
     inside (props.loneElement) { case PropertyDescriptor(n,p,f,g,s,_,_) =>
       n shouldBe "field"
-      p should be ('defined)
-      f.value should have ('name ("field"))
+      p should be (sym"defined")
+      f.value should have (sym"name" ("field"))
       g.value should have (decodedName("field"))
       s shouldBe empty
     }
@@ -271,7 +271,7 @@ class BeanIntrospectorTest extends BaseSpec with Inside with LoneElement with Op
     inside (props.loneElement) { case PropertyDescriptor(n, p, f, g, s, _, _) =>
       n shouldBe "included"
       p shouldBe empty
-      f.value should have ('name ("included"))
+      f.value should have (sym"name" ("included"))
       g.value should have (decodedName ("included"))
       s shouldBe empty
     }
